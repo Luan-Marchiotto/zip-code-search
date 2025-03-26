@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def busca_cep(request):
+    return HttpResponse("Hello, let's go developer")
