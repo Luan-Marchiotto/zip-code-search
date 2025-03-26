@@ -1,0 +1,37 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>🗺 Busca CEP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Buscador de CEP</h1>
+
+        <form action="{% url 'busca_cep' %}" method="POST">
+            {% csrf_token %}
+            <div class="cep-container">
+                <label class="label">CEP</label><br>
+                <input type="number" name="cep" class="form-control" placeholder="Digite o CEP desejado">
+            </div>
+            <div class="button-container">
+                <input type="submit" value="Pesquisar CEP 🔍">
+            </div>
+        </form>
+
+        {% if botao %}
+            <div class="result-box">
+                {% for texto in info %}
+                    <p>{{ texto|safe }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
