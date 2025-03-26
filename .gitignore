@@ -1,1 +1,6 @@
+# Ignorar arquivos compilados Python
+__pycache__
+*.pyc
+
+# Ignorar ambiente virtual (venv)
 venv
